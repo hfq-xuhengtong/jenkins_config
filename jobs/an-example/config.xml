@@ -17,32 +17,23 @@
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.41">
     <script>pipeline {
-    
     agent any
-    
     stages {
-        
         stage(&apos;Build&apos;) {
-            
-            steps{
-                echo &quot;This is a build step&quot;
+            steps {
+                echo &apos;This is a build step.&apos;
             }
         }
-        
         stage(&apos;Test&apos;) {
-            
             steps {
-                echo &quot;This is a test steps&quot;
+                echo &apos;This is a test step.&apos;
             }
         }
-        
         stage(&apos;Deploy&apos;) {
-         
             steps {
-                echo &quot;This is a deploy steps&quot;
-            }   
+                echo &apos;This is a deploy step.&apos;
+            }
         }
-        
     }
 }</script>
     <sandbox>true</sandbox>
