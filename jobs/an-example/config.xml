@@ -7,6 +7,11 @@
         <modelObject class="flow-definition" reference="../../../.."/>
       </blueOceanUrlObject>
     </io.jenkins.blueocean.service.embedded.BlueOceanUrlAction>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.2.2">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
   <description></description>
   <keepDependencies>false</keepDependencies>
