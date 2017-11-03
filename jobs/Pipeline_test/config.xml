@@ -15,7 +15,11 @@
   </actions>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers/>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.41">
     <script>pipeline {
     
@@ -29,6 +33,20 @@
                 sh &apos;echo &quot;multiline shell steps works too&quot;&apos;
             }
         }
+        
+        stage(&apos;Deploy&apos;) {
+            steps{
+                retry(3) {
+                    sh &apos;./flaskey-deploy.sh&apos;
+                }
+                
+                timeout(time:3,unit:&apos;MINUTES&apos;) {
+                    sh &apos;./health-check.sh&apos;
+                }
+                
+            }    
+        }
+        
     }
     
 }</script>
