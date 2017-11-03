@@ -30,7 +30,7 @@
             steps {
                 sh &apos;echo &quot;Hello World!&quot;&apos;
                 sh &apos;python --version&apos;
-                sh &quot;echo &quot;multiline shell steps works too&quot;
+                sh &apos;echo &quot;multiline shell steps works too&quot;&apos;
             }
         }
     }
