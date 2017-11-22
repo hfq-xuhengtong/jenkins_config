@@ -3,7 +3,22 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>choice</name>
+          <description>deploy：发布 rollback ：回滚</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>deploy</string>
+              <string>rollback</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.3">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
