@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
+  <actions/>
   <description>roll-back</description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -30,7 +31,20 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>case $choice in 
+	deploy)
+    	echo &quot;deploy&quot;
+        ;;
+ 	rollback)
+    	echo &quot;rollback&quot;
+        ;;
+    exit
+    	;;
+esac</command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers/>
   <buildWrappers/>
 </project>
