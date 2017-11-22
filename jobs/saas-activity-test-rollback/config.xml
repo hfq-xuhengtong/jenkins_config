@@ -43,6 +43,15 @@
       <passAllAsProjectProperties>false</passAllAsProjectProperties>
     </hudson.plugins.gradle.Gradle>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>target/saas-activity.jar</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
   <buildWrappers/>
 </project>
