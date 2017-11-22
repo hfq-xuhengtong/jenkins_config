@@ -36,6 +36,7 @@
       <command>case $choice in 
 	deploy)
     	echo &quot;deploy&quot;
+        echo &quot;deploy&quot; &gt;&gt; test.txt
         ;;
  	rollback)
     	echo &quot;rollback&quot;
