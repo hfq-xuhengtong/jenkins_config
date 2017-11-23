@@ -21,6 +21,12 @@
           <description>发布时忽略该参数</description>
           <defaultValue>0</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.RunParameterDefinition>
+          <name>project</name>
+          <description></description>
+          <projectName>roll-back-test</projectName>
+          <filter>ALL</filter>
+        </hudson.model.RunParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
