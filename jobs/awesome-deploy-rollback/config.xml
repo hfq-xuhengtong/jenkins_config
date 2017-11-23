@@ -46,12 +46,12 @@
     <hudson.tasks.Shell>
       <command>case $choice in 
 	deploy)
-		cd /data/www/awesome-python-webapp
+		cd /data/awesome-python-webapp
 		git checkout master
 		git pull
         ;;
     rollback)
-    	cd /data/www/awesome-python-webapp
+    	cd /data/awesome-python-webapp
         git checkout master
         git reset --hard HEAD^
         ;;
