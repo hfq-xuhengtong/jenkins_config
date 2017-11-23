@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
+  <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -18,14 +19,49 @@
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.scm.NullSCM"/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.3">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>git@github.com:hfq-xuhengtong/awesome-python-webapp.git</url>
+        <credentialsId>c14c2820-a7dc-4554-b8b2-24104eb2c0fb</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>case $choice in 
+	deploy)
+		cd /data/www/awesome-python-webapp
+		git checkout master
+		git pull
+        ;;
+    rollback)
+    	cd /data/www/awesome-python-webapp
+        git checkout master
+        git reset --hard HEAD^
+        ;;
+    *)
+    	exit
+        ;;
+esac
+</command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers/>
   <buildWrappers/>
 </project>
