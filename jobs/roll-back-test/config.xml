@@ -37,9 +37,11 @@
 	deploy)
     	echo &quot;deploy&quot;
         echo &quot;deploy&quot; &gt;&gt; test.txt
+        cp test.txt /tmp/test.txt
         ;;
  	rollback)
     	echo &quot;rollback&quot;
+        cp ${WORKSPACE}/${version}/test.txt /tmp/test.txt
         ;;
     *)
     exit
