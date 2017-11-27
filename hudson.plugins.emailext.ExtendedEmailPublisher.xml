@@ -2,7 +2,7 @@
 <hudson.plugins.emailext.ExtendedEmailPublisherDescriptor plugin="email-ext@2.58">
   <defaultSuffix>@huizhaofang.com</defaultSuffix>
   <smtpAuthUsername>xuhengtong@huizhaofang.com</smtpAuthUsername>
-  <smtpAuthPassword>{AQAAABAAAAAQt94eM+whjJaJtbh8V8ZG2/gRc1/OH6yb9kFdLQlv+Fs=}</smtpAuthPassword>
+  <smtpAuthPassword>{AQAAABAAAAAQP1NWOxL772CAbT2pM8Wzv9dvIabzrcr8DRtsHW7qjFY=}</smtpAuthPassword>
   <smtpHost>smtp.exmail.qq.com</smtpHost>
   <useSsl>true</useSsl>
   <smtpPort>465</smtpPort>
