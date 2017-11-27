@@ -55,7 +55,7 @@
     rollback)
         cd ${WORKSPACE}
         echo &quot;rollback&quot;
-        jar_name=`tail -2 jar_file.txt | head -n 1`
+        jar_name=`tail -2 jarfile.txt | head -n 1`
         echo $jar_name
         ;;
     *)
