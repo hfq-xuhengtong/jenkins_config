@@ -6,10 +6,10 @@
   <properties>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
-        <daysToKeep>30</daysToKeep>
-        <numToKeep>5</numToKeep>
-        <artifactDaysToKeep>30</artifactDaysToKeep>
-        <artifactNumToKeep>5</artifactNumToKeep>
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>-1</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
     <hudson.model.ParametersDefinitionProperty>
@@ -32,7 +32,6 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>git@github.com:huifenqi/saas-activity.git</url>
-        <credentialsId>c14c2820-a7dc-4554-b8b2-24104eb2c0fb</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -56,7 +55,7 @@
 	deploy)
         echo &quot;deploy&quot;
     	cd ${WORKSPACE}
-        /opt/gradle-2.7/bin/gradle clean build -x test
+        /opt/gradle-2.7/bin/gradle  build -x test
         cp ${WORKSPACE}/build/libs/*.jar /data/www/saas-activity/
         ;;
     rollback)
@@ -68,6 +67,15 @@
 esac</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>backup/*.jar</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
   <buildWrappers/>
 </project>
