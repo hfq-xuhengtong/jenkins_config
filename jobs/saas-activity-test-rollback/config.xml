@@ -32,6 +32,7 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>git@github.com:huifenqi/saas-activity.git</url>
+        <credentialsId>c14c2820-a7dc-4554-b8b2-24104eb2c0fb</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -55,7 +56,7 @@
 	deploy)
         echo &quot;deploy&quot;
     	cd ${WORKSPACE}
-        /opt/gradle-2.7/bin/gradle  build -x test
+        /opt/gradle-2.7/bin/gradle build -x test
         cp ${WORKSPACE}/build/libs/*.jar /data/www/saas-activity/
         ;;
     rollback)
