@@ -56,7 +56,7 @@
     deploy)
         cd ${WORKSPACE}
         /opt/gradle-2.7/bin/gradle build -x test
-        jar=`basname ${WORKSPACE}/build/libs/*.jar`
+        jar=`basename ${WORKSPACE}/build/libs/*.jar`
         cp  ${WORKSPACE}/build/libs/${jar} /data/www/saas/
         echo ${jar} &gt;&gt; jarifle.txt
         ;;
