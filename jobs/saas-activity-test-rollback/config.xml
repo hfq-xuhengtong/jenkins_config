@@ -49,6 +49,7 @@
         echo &quot;deploy&quot;
     	cd ${WORKSPACE}
         /opt/gradle-2.7/bin/gradle clean build -x test
+        cp ${WORKSPACE}/build/libs/*.jar /data/www/saas-activity/
         ;;
     rollback)
     	echo &quot;rollback&quot;
