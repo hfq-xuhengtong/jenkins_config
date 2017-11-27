@@ -4,14 +4,6 @@
   <description>saas_deploy&amp;&amp;rollback</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <jenkins.model.BuildDiscarderProperty>
-      <strategy class="hudson.tasks.LogRotator">
-        <daysToKeep>7</daysToKeep>
-        <numToKeep>5</numToKeep>
-        <artifactDaysToKeep>7</artifactDaysToKeep>
-        <artifactNumToKeep>5</artifactNumToKeep>
-      </strategy>
-    </jenkins.model.BuildDiscarderProperty>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.ChoiceParameterDefinition>
@@ -55,13 +47,16 @@
       <command>case ${choice} in 
     deploy)
         cd ${WORKSPACE}
-        /opt/gradle-2.7/bin/gradle build -x test
+        /opt/gradle-2.7/bin/gradle clean build -x test
         jar=`basename ${WORKSPACE}/build/libs/*.jar`
         cp  ${WORKSPACE}/build/libs/${jar} /data/www/saas/
         echo ${jar} &gt;&gt; jarifle.txt
         ;;
     rollback)
+        cd ${WORKSPACE}
         echo &quot;rollback&quot;
+        jar_name=`tail -2 jar_file.txt | head -n 1`
+        echo $jar_name
         ;;
     *)
         exit
