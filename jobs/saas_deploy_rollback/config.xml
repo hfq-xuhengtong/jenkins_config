@@ -52,7 +52,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>case ${cvoice} in 
+      <command>case ${choice} in 
     deploy)
         cd ${WORKSPACE}
         /opt/gradle-2.7/bin/gradle build -x test
