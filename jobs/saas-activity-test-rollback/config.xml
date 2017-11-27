@@ -43,20 +43,21 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.gradle.Gradle plugin="gradle@1.27.1">
-      <switches></switches>
-      <tasks>clean build -x test</tasks>
-      <rootBuildScriptDir></rootBuildScriptDir>
-      <buildFile></buildFile>
-      <gradleName>gradle2.7</gradleName>
-      <useWrapper>false</useWrapper>
-      <makeExecutable>false</makeExecutable>
-      <useWorkspaceAsHome>false</useWorkspaceAsHome>
-      <wrapperLocation></wrapperLocation>
-      <passAllAsSystemProperties>false</passAllAsSystemProperties>
-      <projectProperties></projectProperties>
-      <passAllAsProjectProperties>false</passAllAsProjectProperties>
-    </hudson.plugins.gradle.Gradle>
+    <hudson.tasks.Shell>
+      <command>case ${choice} in 
+	deploy)
+        echo &quot;deploy&quot;
+    	cd ${WORKSPACE}
+        /opt/gradle-2.7/bin/gradle clean build -c test
+        ;;
+    rollback)
+    	echo &quot;rollback&quot;
+        ;;
+    *)
+    	exit
+        ;;
+esac</command>
+    </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
