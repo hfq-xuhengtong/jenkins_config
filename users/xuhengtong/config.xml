@@ -6,7 +6,7 @@
     <jenkins.security.ApiTokenProperty>
       <apiToken>{AQAAABAAAAAw5SNNm3XVXy6uJHCaDrfGHWTVCT9Y9+dD2576aNH3vRbjRqlQBUI915I9K8fhr1UR+0JjbHds6Ftmt7Xp7z5bAA==}</apiToken>
     </jenkins.security.ApiTokenProperty>
-    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.14">
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.16">
       <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
     <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.20">
@@ -48,5 +48,13 @@
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
       <passwordHash>#jbcrypt:$2a$10$NkLvv6KcWD.0oL3eJmnFZ.f..yi9Bjzyes2SgUhNsrTH1BAguBeGO</passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.3.1">
+      <data class="concurrent-hash-map">
+        <entry>
+          <string>saas-activity-test-rollback</string>
+          <boolean>true</boolean>
+        </entry>
+      </data>
+    </hudson.plugins.favorite.user.FavoriteUserProperty>
   </properties>
 </user>
